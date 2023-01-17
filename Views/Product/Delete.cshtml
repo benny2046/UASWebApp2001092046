@@ -1,0 +1,37 @@
+@model UASWebApp2001092046.Models.Product
+@{
+    ViewData["Title"] = "Delete Product";
+}
+<div class="row">
+    <div class="col-md-8">
+        <h3>Yakin ingin menghapus data ini ?</h3>
+        <h4>Data Product</h4>
+        <hr/>
+        <dl class="row">
+            <dt class="col-sn-2">
+                <label>ProductName :</label> 
+            </dt>
+            <div class="col-sn-19">
+                @Model.Name
+            </div>
+            <dt class="col-sn-2">
+                <label>Stock :</label>
+            </dt>
+            <div class="col-sn-19">
+                @Model.Stock
+            </div>
+            <dt class="col-sn-2">
+                <label>Price :</label>
+            </dt>
+            <div class="col-sn-19">
+                @Model.Price
+            </div>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" name="id" value="@Model.Id"/>
+            <input type="submit" name="id" value="Delete" class="btn btn-sm btn-danger" />
+            <a asp-action="GetAllProduct" class="btn btn-sm btn-primary">Kembali ke List</a>
+        </form>
+    </div>
+</div>

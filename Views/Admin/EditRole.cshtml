@@ -1,0 +1,46 @@
+@model UASWebApp2001092046.Models.EditRole
+@{
+    ViewData["Title"] = "Edit Role";
+}
+
+<h1>Edit Role</h1>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="mb-3 mt-3">
+        <label asp-for="Id"></label>
+        <input asp-for="Id" class="form-control" disabled/>
+    </div>
+     <div class="mb-3 mt-3">
+        <label asp-for="RoleName"></label>
+        <input asp-for="RoleName" class="form-control"/>
+        <span asp-validation-for="RoleName" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="width: auto;">
+        Update
+    </button>
+
+    <a asp-action="ListRole" class="btn btn-primary" style="width: auto;">
+        Back to List Role </a>
+        <br/>
+        <hr/>
+        <h3>User pada role ini</h3>
+        <table class="table table-striped">
+            <tr>
+                <td>Username</td>
+            </tr>
+            @if(Model.Users.Any())
+            {
+                foreach(var user in Model.Users)
+                {
+                    <tr>
+                        <td>@User</td>
+                    </tr>
+                    
+                }
+            }
+        </table>
+        <a asp-controller="Admin" asp-action="EditUsersInRole"
+        asp-route-roleId="@Model.Id" class="btn btn-primary">Add or Remove Users from Role</a>
+</form>
+

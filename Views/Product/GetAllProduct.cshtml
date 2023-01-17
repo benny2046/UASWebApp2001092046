@@ -1,0 +1,43 @@
+@model IEnumerable<UASWebApp2001092046.Models.Product>
+@{
+    ViewData["Title"] = "GetAllProduct";
+}
+
+
+<h1 class="mt-4">Daftar Product</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-action="GetAllProduct">Daftar Product</a></li>
+    <li class="breadcrumb-item active">Daftar Product</li>
+</ol>
+
+<div class="row">
+    @Html.Raw(ViewData["pesan"]) 
+    <div class="col-md-8">
+    <div class="card mb-4">
+    <div class="card-body">
+    <p class="mb-0">
+        <table class="table striped">
+            <a asp-action="Add" class="btn btn-xs btn-primary">Add New product</a><br/>
+            <tr>
+                <th>Id</th>
+                <th>Product Name</th>
+                <th>Stock</th>
+                <th>Price</th>
+                <th>Aksi</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+            </tr>
+            @foreach (var item in @Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Stock</td>
+                    <td>@item.Price</td>
+                    <td><a asp-action="Update" asp-route-id="@item.Id" class="btn btn-xs btn-success">Update</a></td>
+                    <td><a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-xs btn-danger">Delete</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

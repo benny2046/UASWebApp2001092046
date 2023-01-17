@@ -1,0 +1,27 @@
+@model UASWebApp2001092046.Models.Product
+@{
+    ViewData["Title"] = "Update Product";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Update">
+            <input type="hiden" name="id" value="@Model.Id">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stock" class="control-label"></label>
+                <input asp-for="Stock" class="form-control"/>
+            </div> 
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control"/>
+            </div> 
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
